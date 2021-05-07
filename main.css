@@ -5,7 +5,7 @@ body {
     align-items: center;
 }
 
-#qcard {
+#qCard {
     z-index: 1;
     position: fixed;
     background-color: red;

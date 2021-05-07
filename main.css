@@ -2,8 +2,32 @@ body {
     background-color: darkblue;
     text-align: center;
     color: yellow;
+    align-items: center;
+}
+
+div {
+    border: 1px solid #ffff00;
+}
+
+section {
+    align-content: center;
+}
+
+article {
+    width: 750px;
+    align-items: center;
 }
 
 button {
-    grid-template-columns: 6 auto;
+    display: table-cell;
+    vertical-align: middle;
+    width: 120px;
+    height: 100px;
+    text-align: center;
+    font-size: 36px;
+    margin: auto;
+    font-weight: bolder;
+    color: darkgoldenrod;
+    background-color: darkblue;
+    border: 5px solid black;
 }

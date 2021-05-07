@@ -1,0 +1,9 @@
+body {
+    background-color: darkblue;
+    text-align: center;
+    color: yellow;
+}
+
+button {
+    grid-template-columns: 6 auto;
+}

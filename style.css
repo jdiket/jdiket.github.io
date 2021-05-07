@@ -4,9 +4,12 @@ body {
     color: yellow;
 }
 
-div {
-    border: 1px solid yellow;
+section {
     display: inline-block;
+}
+
+div {
+    border: 1px solid #ffff00;
 }
 
 .box {
@@ -16,11 +19,6 @@ div {
 
 .categories {
     grid-template-columns: 6 auto;
+    display: block;
 }
 
-#gameBoard {
-    display: grid;
-    grid-template-columns: 120px 120px 120px 120px 120px 120px;
-    grid-template-rows: 100px 100px 100px 100px 100px 100px;
-    gap: 0px 0px;
-}

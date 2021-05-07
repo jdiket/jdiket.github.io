@@ -5,8 +5,17 @@ body {
     align-items: center;
 }
 
+#qcard {
+    z-index: 1;
+    position: fixed;
+    background-color: red;
+    display: none !important;
+    margin: auto;
+}
+
 div {
     border: 1px solid #ffff00;
+    
 }
 
 section {
@@ -31,3 +40,4 @@ button {
     background-color: darkblue;
     border: 5px solid black;
 }
+

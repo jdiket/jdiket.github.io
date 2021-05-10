@@ -110,86 +110,58 @@ const lego = {
     }
 };
 
-const category = {
+const brandNames = {
     100: {
         value: 100,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'Due to lawsuits, in the 1940s Pinesol had to change its name to Pine-sol to avoid confusion with this other cleaning brand.',
+        answers: ['Lysol', 'Pine Fresh', 'Cleansol', 'Clorox']
     }, 
     200: {
         value: 200,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'Crepe paper filters used in gas masks during World War 1 evolved into this brand of tissue.',
+        answers: ['Kleenex', 'Puffs', 'Charmin', 'Cottonelle']
     }, 
     300: {
         value: 300,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'Launched nationally in 1953, this wrap that clings to leftovers was Dow Chemical\'s first consumer product.',
+        answers: ['Saran Wrap', 'Cling Wrap', 'Plastic Wrap', 'Reynolds Wrap']
     }, 
     400: {
         value: 400,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'In 1958 this credit card began as BankAmericard when cards with a $500 limit were sent out as an experiment.',
+        answers: ['Visa', 'American Express', 'MasterCard', 'Discover']
     }, 
     500: {
         value: 500,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'The strawberry flavor of this 5-letter Coca-Cola brand is a favorite spirit offering at shrines in Thailand.',
+        answers: ['Fanta', 'Barq\'s', 'Costa', 'Chico']
     }
 };
 
-const category = {
+const astronomy = {
     100: {
         value: 100,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'On this planet for a king amongst gods, the largest circular storm in our solar system takes place.',
+        answers: ['Jupiter', 'Saturn', 'Neptune', 'Venus']
     }, 
     200: {
         value: 200,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'This is the largest asteroid known to exist.',
+        answers: ['Ceres', 'Vesta', 'Icarus', 'Eros']
     }, 
     300: {
         value: 300,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'This was the first spacecraft to life a human beign into space.',
+        answers: ['Vostok 1', 'Sputnik', 'Luna 1', 'Mercury 3']
     }, 
     400: {
         value: 400,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'This astronomer challenged the understanding of science and theologians when he published "On the Revolutions of the Heavenly Spheres".',
+        answers: ['Copernicus', 'Galileo', 'Euclid', 'Kepler']
     }, 
     500: {
         value: 500,
-        question: '',
-        answers: ['', '', '', '']
-    }
-};
-
-const category = {
-    100: {
-        value: 100,
-        question: '',
-        answers: ['', '', '', '']
-    }, 
-    200: {
-        value: 200,
-        question: '',
-        answers: ['', '', '', '']
-    }, 
-    300: {
-        value: 300,
-        question: '',
-        answers: ['', '', '', '']
-    }, 
-    400: {
-        value: 400,
-        question: '',
-        answers: ['', '', '', '']
-    }, 
-    500: {
-        value: 500,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'This refers to the time period between two successive occurenes of a specific type of alignment between a planet, or one of its moons, with the Sun and the Earth.',
+        answers: ['Synodic Period', 'Conjunction', 'Sidereal Period', 'Aphelion']
     }
 };

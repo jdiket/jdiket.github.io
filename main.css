@@ -52,3 +52,10 @@ button {
     cursor: pointer;
 }
 
+.box {
+    display: inline;
+    width: 120px;
+    height: 100px;
+    text-align: center;
+    font-size: large;
+}

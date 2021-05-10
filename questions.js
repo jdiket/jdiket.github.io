@@ -63,17 +63,17 @@ const elements = {
     200: {
         value: 200,
         question: 'The father of the modern periodic table, he famously designed it based on a love of Solitaire.',
-        answers: ['Mendeleev', '', '', '']
+        answers: ['Mendeleev', 'Moseley', '', '']
     }, 
     300: {
         value: 300,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'The creator of the Periodic Table incorrectly stated this family of elements did not exist.',
+        answers: ['The Noble Gases', 'Alkali Metals', 'Halogens', 'Silicons']
     }, 
     400: {
         value: 400,
-        question: '',
-        answers: ['', '', '', '']
+        question: 'This is the term for the various forms of a single element.',
+        answers: ['Allotrope', 'Compound', 'Ion', 'Molecule']
     }, 
     500: {
         value: 500,

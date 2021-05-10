@@ -1,5 +1,17 @@
-console.log('You must phrase your answer in the form of a question.')
+let playerScore = 0;
 
-const trial = document.querySelector('.container');
+const qText = document.querySelector('#qCard');
 
-console.log(trial)
+console.log('idiot');
+
+const showQuestion = () => {
+    qText.style.display = 'block';
+}
+
+const answerQuestion = () => {
+    console.log('choice made');
+}
+
+document.querySelectorAll('.qButtons').forEach(question => question.addEventListener('click', showQuestion));
+
+document.querySelectorAll('.aButtons').forEach(playerAnswer => playerAnswer.addEventListener('click', answerQuestion));

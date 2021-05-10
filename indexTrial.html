@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../GA_Project1/main.css">
-    <script src="../GA_Project1/appTest.js"></script>
+    <script src="../GA_Project1/appTest.js" defer></script>
     <title>Jeopardy Test</title>
 </head>
 <body>
@@ -63,7 +63,11 @@
             </article>
         </section>
         <div id="qCard">
-            <p>This should hopefully be question text.</p>
+            <p id="qText">This should hopefully be question text.</p>
+            <button class="aButtons" id="choice_1">A</button>
+            <button class="aButtons" id="choice_2">B</button>
+            <button class="aButtons" id="choice_3">C</button>
+            <button class="aButtons" id="choice_4">D</button>
         </div>
     </div>
     

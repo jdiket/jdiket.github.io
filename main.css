@@ -9,8 +9,18 @@ body {
     z-index: 1;
     position: fixed;
     background-color: red;
-    display: none !important;
-    margin: auto;
+    display: none;
+    margin: 50px auto;
+    width: 820px;
+    height: 800px;
+    top: 0;
+}
+
+#qText {
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 div {
@@ -39,5 +49,6 @@ button {
     color: darkgoldenrod;
     background-color: darkblue;
     border: 5px solid black;
+    cursor: pointer;
 }
 

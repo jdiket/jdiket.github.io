@@ -16,14 +16,26 @@ const testing = {
 const showQuestion = () => {
     qCard.style.display = 'block';
     qText.innerText = testing.two;
-    choice1.innerText = testing.three[0];
-    choice2.innerText = testing.three[1];
-    choice3.innerText = testing.three[2];
-    choice4.innerText = testing.three[3];
+    let randAnswerArray = [];
+    let tempArray = testing.three;
+    for (let i = 0; i < 4; i ++) {
+        let randChoice = Math.floor(Math.random() * tempArray.length);
+        randAnswerArray.push(tempArray[randChoice]);
+        tempArray.splice(randChoice, 1);
+        console.log(randChoice);
+        console.log(tempArray);
+        console.log(randAnswerArray);
+    }
+    choice1.innerText = randAnswerArray[0];
+    choice2.innerText = randAnswerArray[1];
+    choice3.innerText = randAnswerArray[2];
+    choice4.innerText = randAnswerArray[3];
 }
 
-const answerQuestion = () => {
-    console.log('choice made');
+const answerQuestion = (e) => {
+    console.log(e.currentTarget.innerText);
+    qCard.style.display = 'none';
+    
 }
 
 document.querySelectorAll('.qButtons').forEach(question => question.addEventListener('click', showQuestion));

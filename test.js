@@ -33,7 +33,7 @@ const movies = {
 };
 
 const testRun = (category, score) => {
-    console.log(movies[score].answers);
+    console.log(category);
     console.log(typeof category);
     console.log(testing)
 }

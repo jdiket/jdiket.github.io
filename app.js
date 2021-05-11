@@ -1,5 +1,7 @@
 // Establishing global variable for play
 let playerScore = 0;
+let category = '';
+let value = 0;
 
 // Creating variables to use for event listeners and choices
 const qCard = document.querySelector('#qCard');
@@ -195,9 +197,17 @@ const showQuestion = (category, value) => {
         tempArray.splice(randChoice, 1);
     }
     choice1.innerText = randAnswerArray[0];
+    choice1.setAttribute('category', category);
+    choice1.setAttribute('value', value);
     choice2.innerText = randAnswerArray[1];
+    choice2.setAttribute('category', category);
+    choice2.setAttribute('value', value);
     choice3.innerText = randAnswerArray[2];
+    choice3.setAttribute('category', category);
+    choice3.setAttribute('value', value);
     choice4.innerText = randAnswerArray[3];
+    choice4.setAttribute('category', category);
+    choice4.setAttribute('value', value);
 
 }
 
@@ -205,15 +215,25 @@ const showQuestion = (category, value) => {
 const answerQuestion = (e) => {
     qCard.style.display = 'none';
     console.log(e.currentTarget);
-    // if (e.currentTarget.innerText === testing.three[0]) {
-    //     playerScore += testing.one
-    // }
+    category = e.currentTarget.getAttribute('category');
+    value = e.currentTarget.getAttribute('value');
+    console.log(category);
+    console.log(value);
+    if (e.currentTarget.innerText === qAndA[category][value].answers[0]) {
+        alert('Correct!');
+        playerScore += qAndA[category][value].value;
+    } else {
+        alert('Sorry, we were looking for ' + qAndA[category][value].answers[0])
+    }
     
     updateScore();
 }
 
 // Function updates player score on board screen
 const updateScore = () => {
+    if (playerScore >= 6300) {
+        alert('Congratulation!  You\'ve managed to get enough points to win!');
+    }
     scoreBoard.innerText = 'Current Score: ' + playerScore;
 }
 

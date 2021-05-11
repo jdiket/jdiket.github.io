@@ -27,12 +27,12 @@ const qAndA = {
         },
         300: {
             value: 300,
-            question: 'This film out of South Korea became the first Oscar winner for Best Picture.',
+            question: 'This film out of South Korea became the first foreign language Oscar winner for Best Picture.',
             answers: ['Parasite', 'A Taxi Driver', 'The Age of Shadows', 'Burning']
         },
         400: {
             value: 400,
-            question: 'Famed and award winning actor Paul Newman made his final theatrical appearance in this Same Mendes film.',
+            question: 'Famed and award winning actor Paul Newman made his final theatrical appearance in this Sam Mendes film.',
             answers: ['Road to Perdition', 'American Beauty', 'Twilight', 'Where the Money Is']
         },
         500: {
@@ -45,12 +45,12 @@ const qAndA = {
     filmLit: {
         100: {
             value: 100,
-            question: 'Famously rejected by nearly half a dozen publishing houses, this author went on to become the wealthiest woman in English.',
+            question: 'Famously rejected by nearly half a dozen publishing houses, this author went on to become the wealthiest woman in England.',
             answers: ['J.K. Rowling', 'Virginia Woolf', 'Agatha Christie', 'P.D. James']
         }, 
         200: {
             value: 200,
-            question: 'In 1988 she scored her first #1 bestseller with "Queen of the Damned", the third novel of her Vampire Chronicles.',
+            question: 'In 1988, she scored her first #1 bestseller with "Queen of the Damned", the third novel of her Vampire Chronicles.',
             answers: ['Anne Rice', 'Laurell K. Hamilton', 'Nancy Collins', 'Nancy Baker']
         }, 
         300: {

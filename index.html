@@ -4,69 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../GA_Project1/style.css">
+    <link rel="stylesheet" href="../GA_Project1/main.css">
     <script src="../GA_Project1/app.js" defer></script>
-    <title>Jeopardy</title>
+    <title>Jeopardy Test</title>
 </head>
 <body>
-    <div class="gameContainer">
-        <header class="marquee">
+    <div class="container">
+        <header>
             <h1>Jeopardy!</h1>
+            <div class="scoreBoard">Current Score: </div>
         </header>
         <section class="gameBoard">
-            <section class="categories">
-                <div id="category_1" class="box"></div>
-                <div id="category_2" class="box"></div>
-                <div id="category_3" class="box"></div>
-                <div id="category_4" class="box"></div>
-                <div id="category_5" class="box"></div>
-                <div id="category_6" class="box"></div>
-            </section>
+            <article class="categories">
+                <div id="category_1" class="box">Movies</div>
+                <div id="category_2" class="box">It's Elemental</div>
+                <div id="category_3" class="box">Literature and Film</div>
+                <div id="category_4" class="box">Legos</div>
+                <div id="category_5" class="box">Brand Names</div>
+                <div id="category_6" class="box">Astronomy</div>
+            </article>
             <article class="questions">
-                <section class="category_1_questions">
-                    <div id="c1q100" class="box"></div>
-                    <div id="c1q200" class="box"></div>
-                    <div id="c1q300" class="box"></div>
-                    <div id="c1q400" class="box"></div>
-                    <div id="c1q500" class="box"></div>
-                </section>
-                <section class="category_2_questions">
-                    <div id="c2q100" class="box"></div>
-                    <div id="c2q200" class="box"></div>
-                    <div id="c2q300" class="box"></div>
-                    <div id="c2q400" class="box"></div>
-                    <div id="c2q500" class="box"></div>
-                </section>
-                <section class="category_3_questions">
-                    <div id="c3q100" class="box"></div>
-                    <div id="c3q200" class="box"></div>
-                    <div id="c3q300" class="box"></div>
-                    <div id="c3q400" class="box"></div>
-                    <div id="c3q500" class="box"></div>
-                </section>
-                <section class="category_4_questions">
-                    <div id="c4q100" class="box"></div>
-                    <div id="c4q200" class="box"></div>
-                    <div id="c4q300" class="box"></div>
-                    <div id="c4q400" class="box"></div>
-                    <div id="c4q500" class="box"></div>
-                </section>
-                <section class="category_5_questions">
-                    <div id="c5q100" class="box"></div>
-                    <div id="c5q200" class="box"></div>
-                    <div id="c5q300" class="box"></div>
-                    <div id="c5q400" class="box"></div>
-                    <div id="c5q500" class="box"></div>
-                </section>
-                <section class="category_6_questions">
-                    <div id="c6q100" class="box"></div>
-                    <div id="c6q200" class="box"></div>
-                    <div id="c6q300" class="box"></div>
-                    <div id="c6q400" class="box"></div>
-                    <div id="c6q500" class="box"></div>
-                </section>
+
+                <button class="qButtons category_1 100" id="c1q100">100</button>
+                <button class="qButtons category_2 100" id="c2q100">100</button>
+                <button class="qButtons category_3 100" id="c3q100">100</button>
+                <button class="qButtons category_4 100" id="c4q100">100</button>
+                <button class="qButtons category_5 100" id="c5q100">100</button>
+                <button class="qButtons category_6 100" id="c6q100">100</button>
+
+                <button class="qButtons category_1 200" id="c1q200">200</button>
+                <button class="qButtons category_2 200" id="c2q200">200</button>
+                <button class="qButtons category_3 200" id="c3q200">200</button>
+                <button class="qButtons category_4 200" id="c4q200">200</button>
+                <button class="qButtons category_5 200" id="c5q200">200</button>
+                <button class="qButtons category_6 200" id="c6q200">200</button>
+                
+                <button class="qButtons category_1 300" id="c1q300">300</button>
+                <button class="qButtons category_2 300" id="c2q300">300</button>
+                <button class="qButtons category_3 300" id="c3q300">300</button>
+                <button class="qButtons category_4 300" id="c4q300">300</button>
+                <button class="qButtons category_5 300" id="c5q300">300</button>
+                <button class="qButtons category_6 300" id="c6q300">300</button>
+
+                <button class="qButtons category_1 400" id="c1q400">400</button>
+                <button class="qButtons category_2 400" id="c2q400">400</button>
+                <button class="qButtons category_3 400" id="c3q400">400</button>
+                <button class="qButtons category_4 400" id="c4q400">400</button>
+                <button class="qButtons category_5 400" id="c5q400">400</button>
+                <button class="qButtons category_6 400" id="c6q400">400</button>
+
+                <button class="qButtons category_1 500" id="c1q500">500</button>
+                <button class="qButtons category_2 500" id="c2q500">500</button>
+                <button class="qButtons category_3 500" id="c3q500">500</button>
+                <button class="qButtons category_4 500" id="c4q500">500</button>
+                <button class="qButtons category_5 500" id="c5q500">500</button>
+                <button class="qButtons category_6 500" id="c6q500">500</button>
+            
             </article>
         </section>
+        <div id="qCard">
+            <p id="qText"></p>
+            <button class="aButtons" id="choice_1"></button>
+            <button class="aButtons" id="choice_2"></button>
+            <button class="aButtons" id="choice_3"></button>
+            <button class="aButtons" id="choice_4"></button>
+        </div>
     </div>
+    
 </body>
 </html>

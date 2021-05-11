@@ -6,7 +6,7 @@ const movies = {
     }, 
     200: {
         value: 200,
-        question: 'Due to his dramatic weight gain to play the role, this Batman actor was called "Fatman" by many of the set.',
+        question: 'Due to his dramatic weight gain to play the role, this Batman actor was called "Fatman" by many on the set.',
         answers: ['Christian Bale', 'Michael Keaton', 'Adam West', 'George Clooney']
     },
     300: {

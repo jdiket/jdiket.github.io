@@ -4,6 +4,7 @@ let playerScore = 0;
 // Creating variables to use for event listeners and choices
 const qCard = document.querySelector('#qCard');
 const qText = document.querySelector('#qText');
+const scoreBoard = document.querySelector('.scoreBoard');
 const choice1 = document.querySelector('#choice_1');
 const choice2 = document.querySelector('#choice_2');
 const choice3 = document.querySelector('#choice_3');
@@ -46,8 +47,13 @@ const answerQuestion = (e) => {
         playerScore += testing.one
     }
     console.log(playerScore)
-    
+    updateScore();
 }
+
+const updateScore = () => {
+    scoreBoard.innerText = 'Current Score: ' + playerScore;
+}
+
 /* Creates an event listener on all question spaces of the board that will activate the showQuestion funciton */
 document.querySelectorAll('.qButtons').forEach(question => question.addEventListener('click', showQuestion));
 

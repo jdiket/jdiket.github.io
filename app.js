@@ -271,10 +271,9 @@ const updateScore = () => {
     scoreBoard.innerText = 'Current Score: ' + playerScore;
 }
 
+// Restarts the game by reloading the entire page, setting all states back to origin
 const restart = () => {
-    playerScore = 0;
-    category = '';
-    value = 0;
+    document.location.reload();
 }
 
 // Sets a game timer of 5 minutes and logs current player score when time is up

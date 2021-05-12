@@ -211,14 +211,12 @@ const showQuestion = (category, value) => {
 
 }
 
-/* Turns the modal card back off to redisplay the game board */
+/* Turns the modal card back off to redisplay the game board, determines whether selected answer is correct and notifies player */
 const answerQuestion = (e) => {
     qCard.style.display = 'none';
     console.log(e.currentTarget);
     category = e.currentTarget.getAttribute('category');
     value = e.currentTarget.getAttribute('value');
-    console.log(category);
-    console.log(value);
     if (e.currentTarget.innerText === qAndA[category][value].answers[0]) {
         alert('Correct!');
         playerScore += qAndA[category][value].value;
@@ -229,16 +227,30 @@ const answerQuestion = (e) => {
     updateScore();
 }
 
-// Function updates player score on board screen
+// This function checks player score for win/lose conditions and updates the score in the DOM
 const updateScore = () => {
     if (playerScore >= 6300) {
         alert('Congratulation!  You\'ve managed to get enough points to win!');
+        restart();
+    } else if (playerScore < 0 ) {
+        alert('Unfotunately, you\'ve lost too many points, try again.')
+        restart();
     }
     scoreBoard.innerText = 'Current Score: ' + playerScore;
 }
 
-/* Creates an event listener on all question spaces of the board that will activate the showQuestion funciton */
-// document.querySelectorAll('.qButtons').forEach(question => question.addEventListener('click', showQuestion));
+const restart = () => {
+    playerScore = 0;
+    category = '';
+    value = 0;
+}
+
+const endGame = () => {
+    alert('In five minutes you managed to score ' + playerScore + ' points.  Reload the page and see if you can score higher!');
+    restart();
+}
+
+window.setTimeout(endGame, 300000);
 
 /* Creates event listener on the answer choices for answering the questions */
 document.querySelectorAll('.aButtons').forEach(playerAnswer => playerAnswer.addEventListener('click', answerQuestion));

@@ -17,7 +17,7 @@ const choice4 = document.querySelector('#choice_4');
 
 
 // Array to randomize responses on correct answers
-const affirmations = [' smarty-pants', ' wisenheimer', ', aren\'t you smart', ', how\'d you know that?', ', that wasn\'t easy!'];
+const affirmations = [' smarty-pants', ' wisenheimer', ' aren\'t you smart', ' how\'d you know that?', ' that wasn\'t easy!'];
 
 const beginAgain = ['Let\'s start from the beginning, shall we?', 'Let\'s start at the very beginning, a very good place to start...', 'How do you feel about starting over?', 'If we start over, I bet you can do better'];
 

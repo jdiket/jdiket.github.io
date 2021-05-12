@@ -221,6 +221,7 @@ const answerQuestion = (e) => {
         playerScore += qAndA[category][value].value;
     } else {
         alert('Sorry, we were looking for ' + qAndA[category][value].answers[0])
+        playerScore -= qAndA[category][value].value;
     }
     
     updateScore();

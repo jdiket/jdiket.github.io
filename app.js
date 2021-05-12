@@ -16,6 +16,11 @@ const choice3 = document.querySelector('#choice_3');
 const choice4 = document.querySelector('#choice_4');
 
 
+// Array to randomize responses on correct answers
+const affirmations = [' smarty-pants', ' wisenheimer', ', aren\'t you smart', ', how\'d you know that?', ', that wasn\'t easy!'];
+
+const beginAgain = ['Let\'s start from the beginning, shall we?', 'Let\'s start at the very beginning, a very good place to start...', 'How do you feel about starting over?', 'If we start over, I bet you can do better'];
+
 // Object of questions, answers, and point values for the game board
 const qAndA = {
 
@@ -253,13 +258,24 @@ const answerQuestion = (e) => {
     if (qAndA[category][value].answered === true) {
         alert('You have already answered this question, please choose another.');
     } else if (e.currentTarget.innerText === qAndA[category][value].answers[0]) {
-        alert('Correct!');
         playerScore += qAndA[category][value].value;
         qAndA[category][value].answered = true;
+        Swal.fire({
+            icon: 'success',
+            title: 'Correct!',
+            text: 'Good job,' + affirmations[Math.floor(Math.random() * affirmations.length)],
+          })
+        // alert('Correct!');
     } else {
-        alert('Sorry, we were looking for ' + qAndA[category][value].answers[0])
         playerScore -= qAndA[category][value].value;
         qAndA[category][value].answered = true;
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Sorry, we were looking for ' + qAndA[category][value].answers[0],
+            confirmButtonText: 'I\'ll get it next time',
+          })
+        // alert('Sorry, we were looking for ' + qAndA[category][value].answers[0])
     }
     
     updateScore();
@@ -267,17 +283,35 @@ const answerQuestion = (e) => {
 
 // This function checks player score for win/lose conditions and updates the score in the DOM
 const updateScore = () => {
-    if (playerScore < 0 ) {
-        alert('Unfotunately, you\'ve lost too many points, try again.')
-        restart();
-    }
     scoreBoard.innerText = 'Current Score: ' + playerScore;
+    if (playerScore < 0 ) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Low Score',
+            text: 'Unfortunately, your score has gone negative',
+            confirmButtonText: 'Bummer',
+            willClose: restart,
+          })
+        // alert('Unfotunately, you\'ve lost too many points, try again.')
+        
+    }
+}
+
+const startOver = () => {
+    document.location.reload();
 }
 
 // Restarts the game by reloading the entire page, setting all states back to origin
 const restart = () => {
-    alert('Let\'s start from the beginning, shall we?');
-    document.location.reload();
+    Swal.fire({
+        icon: 'info',
+        title: 'Start Over',
+        text: '' + beginAgain[Math.floor(Math.random() * beginAgain.length)],
+        confirmButtonText: 'Let\'s do it!',
+        willClose: startOver,
+      })
+    // alert('Let\'s start from the beginning, shall we?');
+    // document.location.reload();
 }
 
 // Sets a game timer of 5 minutes and logs current player score when time is up

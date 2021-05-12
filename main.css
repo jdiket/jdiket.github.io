@@ -11,7 +11,7 @@ body {
 #qCard {
     z-index: 1;
     position: fixed;
-    background-color: red;
+    background-color: blue;
     display: none;
     margin: 50px auto;
     width: 820px;

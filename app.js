@@ -81,7 +81,7 @@ const qAndA = {
         200: {
             value: 200,
             question: 'The father of the modern periodic table, he famously designed it based on a love of Solitaire.',
-            answers: ['Mendeleev', 'Moseley', '', '']
+            answers: ['Mendeleev', 'Moseley', 'Heisenberg', 'Plank']
         }, 
         300: {
             value: 300,
@@ -211,10 +211,9 @@ const showQuestion = (category, value) => {
 
 }
 
-/* Turns the modal card back off to redisplay the game board, determines whether selected answer is correct and notifies player */
+// Hides the modal card, determines whether selected answer is correct and notifies player
 const answerQuestion = (e) => {
     qCard.style.display = 'none';
-    console.log(e.currentTarget);
     category = e.currentTarget.getAttribute('category');
     value = e.currentTarget.getAttribute('value');
     if (e.currentTarget.innerText === qAndA[category][value].answers[0]) {
@@ -229,10 +228,7 @@ const answerQuestion = (e) => {
 
 // This function checks player score for win/lose conditions and updates the score in the DOM
 const updateScore = () => {
-    if (playerScore >= 6300) {
-        alert('Congratulation!  You\'ve managed to get enough points to win!');
-        restart();
-    } else if (playerScore < 0 ) {
+    if (playerScore < 0 ) {
         alert('Unfotunately, you\'ve lost too many points, try again.')
         restart();
     }
@@ -245,6 +241,7 @@ const restart = () => {
     value = 0;
 }
 
+// Sets a game timer of 5 minutes and logs current player score when time is up
 const endGame = () => {
     alert('In five minutes you managed to score ' + playerScore + ' points.  Reload the page and see if you can score higher!');
     restart();

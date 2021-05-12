@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 body {
-    background-color: darkblue;
+    background-image: linear-gradient(darkblue, black);
     text-align: center;
     color: yellow;
     align-items: center;
@@ -29,6 +29,7 @@ body {
 
 div {
     border: 1px solid #ffff00;
+    font-size: 16px;
 }
 
 section {

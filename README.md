@@ -8,4 +8,9 @@ For Project 1, I decided to create Jeopardy.  While at its surface a very simple
 - Languages - HTML5, CSS3, Javascript
 - Design - Google Fonts
 
-
+### Features:
+- Scoreboard
+- Ability to Restart
+- Randomized answer distribution
+- Global timer
+- Tracking of answered questions

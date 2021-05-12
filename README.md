@@ -7,6 +7,8 @@ For Project 1, I decided to create Jeopardy.  While at its surface a very simple
 ### Technologies Used:
 - Languages - HTML5, CSS3, Javascript
 - Design - Google Fonts
+- sweetalert2
+- jService
 
 ### Features:
 - Scoreboard
@@ -14,3 +16,8 @@ For Project 1, I decided to create Jeopardy.  While at its surface a very simple
 - Randomized answer distribution
 - Global timer
 - Tracking of answered questions
+
+#### Future Plans:
+- Integrate more categories/questions for replayability
+- Better CSS styling for appearance
+- Customizing sweetalert2 to avoid CSS crossover

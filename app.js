@@ -1,3 +1,5 @@
+
+
 // Establishing global variable for play
 let playerScore = 0;
 let category = '';

@@ -7,6 +7,7 @@ let value = 0;
 const qCard = document.querySelector('#qCard');
 const qText = document.querySelector('#qText');
 const scoreBoard = document.querySelector('.scoreBoard');
+const title = document.querySelector('h1');
 const choice1 = document.querySelector('#choice_1');
 const choice2 = document.querySelector('#choice_2');
 const choice3 = document.querySelector('#choice_3');
@@ -273,6 +274,7 @@ const updateScore = () => {
 
 // Restarts the game by reloading the entire page, setting all states back to origin
 const restart = () => {
+    alert('Let\'s start from the beginning, shall we?');
     document.location.reload();
 }
 
@@ -286,3 +288,5 @@ window.setTimeout(endGame, 300000);
 
 /* Creates event listener on the answer choices for answering the questions */
 document.querySelectorAll('.aButtons').forEach(playerAnswer => playerAnswer.addEventListener('click', answerQuestion));
+
+title.addEventListener('click', restart);

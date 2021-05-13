@@ -90,11 +90,15 @@ const dealPlayer = () => {
     console.log(playerHand);
     console.log(playerValue);
 
-    let playerShowCard = document.createElement('h1');
-    playerShowCard.innerText = playerHand[0];
-    document.querySelector('.playerHand').appendChild(playerShowCard);
-    playerShowCard.innerText = playerHand[1];
-    document.querySelector('.playerHand').appendChild(playerShowCard);
+    displayPlayerHand();
+}
+
+const displayPlayerHand = () => {
+    for (let i = 0; i < playerHand.length; i ++) {
+        let playerShowCard = document.createElement('h1');
+        playerShowCard.innerText = playerHand[i];
+        document.querySelector('.playerHand').appendChild(playerShowCard);  
+    }
 }
 
 const dealComputer = () => {
@@ -107,8 +111,18 @@ const dealComputer = () => {
     console.log(computerValue);
 
     let computerShowCard = document.createElement('h1');
-    computerShowCard.innerText = computerHand[0];
+    computerShowCard.innerText = computerHand[1];
     document.querySelector('.computerHand').appendChild(computerShowCard);
+}
+
+const playComputer = () => {
+    while (computerValue <= 16) {
+        let card = deckArray[Math.floor(Math.random() * deckArray.length)];
+        computerHand.push(card)
+        computerValue += deckObject[card].value;
+    }
+
+    winOrLose();
 }
 
 const startGame = () => {
@@ -117,7 +131,7 @@ const startGame = () => {
 }
 
 const winOrLose = () => {
-    if ((playerValue = 21) && (playerHand.length === 2)) {
+    if ((playerValue === 21) && (playerHand.length === 2)) {
         console.log('Blackjack! Player wins');
     } else if ((playerValue > 21) && (computerValue > 21)) {
         console.log('Both players bust');
@@ -126,9 +140,11 @@ const winOrLose = () => {
     } else if ((playerValue < 21) && (computerValue < 21)) {
         console.log('Player scored: ' + playerValue);
         console.log('Computer scored: ' + computerValue);
+    } else {
+        console.log('what happened?');
     }
 }
 
 hitButton.addEventListener('click', playerHit);
-stayButton.addEventListener('click', winOrLose);
+stayButton.addEventListener('click', playComputer);
 startButton.addEventListener('click', startGame);

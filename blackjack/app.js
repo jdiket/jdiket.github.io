@@ -80,6 +80,8 @@ const playerHit = () => {
     playerValue += deckObject[card].value;
     console.log(playerHand);
     console.log(playerValue);
+
+    displayPlayerHand();
 }
 
 const dealPlayer = () => {
@@ -95,6 +97,10 @@ const dealPlayer = () => {
 }
 
 const displayPlayerHand = () => {
+    while (document.querySelector('.playerHand').firstChild) {
+        document.querySelector('.playerHand').removeChild(document.querySelector('.playerHand').lastChild);
+    }
+
     for (let i = 0; i < playerHand.length; i ++) {
         let playerShowCard = document.createElement('h1');
         playerShowCard.innerText = playerHand[i];

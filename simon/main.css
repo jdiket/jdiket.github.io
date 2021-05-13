@@ -1,0 +1,43 @@
+.device {
+    background-color: black;
+    height: 350px;
+    width: 350px;
+    border-radius: 100%;
+    justify-content: center;
+    margin: auto;
+}
+
+.buttons {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#yellow {
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+}
+
+#red {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+
+#blue {
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+}
+
+#green {
+    background-color: green;
+    height: 100px;
+    width: 100px;
+}
+
+button {
+    
+    margin: 5px;
+}

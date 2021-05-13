@@ -4,12 +4,12 @@
     height: 800px;
 }
 
-.deck {
+/* .deck {
     height: 200px;
     width: 75px;
     background-image: url('../blackjack/cards/cardBack.jpeg');
     background-size: auto;
-}
+} */
 
 .playerHand {
     color: blue;

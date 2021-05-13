@@ -1,6 +1,7 @@
 const hitButton = document.querySelector('.hit');
 const stayButton = document.querySelector('.stay');
 const startButton = document.querySelector('.start');
+const resetButton = document.querySelector('.reset');
 
 let playerHand = [];
 let playerValue = 0;
@@ -67,7 +68,7 @@ const deckObject = {
     }, 
     Ace: {
         suits: ['spades', 'hearts', 'diamonds', 'clubs'],
-        value: [11, 1],
+        value: 11,
         quantity: 2
     }, 
 }
@@ -130,6 +131,10 @@ const startGame = () => {
     dealPlayer();
 }
 
+const restart = () => {
+    window.location.reload();
+}
+
 const winOrLose = () => {
     if ((playerValue === 21) && (playerHand.length === 2)) {
         console.log('Blackjack! Player wins');
@@ -137,6 +142,8 @@ const winOrLose = () => {
         console.log('Both players bust');
     } else if ((playerValue > 21) && (computerValue <= 21)) {
         console.log('Player busts, computer wins');
+    } else if (playerValue === computerValue) {
+        console.log('Push!');
     } else if ((playerValue < 21) && (computerValue < 21)) {
         console.log('Player scored: ' + playerValue);
         console.log('Computer scored: ' + computerValue);
@@ -148,3 +155,4 @@ const winOrLose = () => {
 hitButton.addEventListener('click', playerHit);
 stayButton.addEventListener('click', playComputer);
 startButton.addEventListener('click', startGame);
+resetButton.addEventListener('click', restart);

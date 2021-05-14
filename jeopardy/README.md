@@ -23,3 +23,4 @@ For Project 1, I decided to create Jeopardy.  While at its surface a very simple
 - Integrate more categories/questions for replayability
 - Better CSS styling for appearance
 - Allow user to select or enter a game length
+- Give visual cue for which questions have been answered

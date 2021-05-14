@@ -17,7 +17,7 @@ const choice4 = document.querySelector('#choice_4');
 
 
 // Array to randomize responses on correct answers
-const affirmations = [' smarty-pants', ' wisenheimer', ' aren\'t you smart', ' how\'d you know that?', ' that wasn\'t easy!'];
+const affirmations = [' smarty-pants.', ' wisenheimer.', ' aren\'t you smart.', ' how\'d you know that?', ' that wasn\'t easy!', ' you made that look easy.', ' do I need to make this harder?'];
 
 const beginAgain = ['Let\'s start from the beginning, shall we?', 'Let\'s start at the very beginning, a very good place to start...', 'How do you feel about starting over?', 'If we start over, I bet you can do better'];
 
@@ -256,7 +256,13 @@ const answerQuestion = (e) => {
     value = e.currentTarget.getAttribute('value');
     console.log(qAndA[category][value].answered);
     if (qAndA[category][value].answered === true) {
-        alert('You have already answered this question, please choose another.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Already Answered',
+            text: 'You have already answered this question, please choose another.',
+            confirmButtonText: 'Oops',
+          })
+        // alert('You have already answered this question, please choose another.');
     } else if (e.currentTarget.innerText === qAndA[category][value].answers[0]) {
         playerScore += qAndA[category][value].value;
         qAndA[category][value].answered = true;

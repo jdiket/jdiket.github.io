@@ -122,11 +122,24 @@ const dealComputer = () => {
     document.querySelector('.computerHand').appendChild(computerShowCard);
 }
 
+const displayComputerHand = () => {
+    while (document.querySelector('.computerHand').firstChild) {
+        document.querySelector('.computerHand').removeChild(document.querySelector('.computerHand').lastChild);
+    }
+
+    for (let i = 0; i < computerHand.length; i ++) {
+        let computerShowCard = document.createElement('h1');
+        computerShowCard.innerText = computerHand[i];
+        document.querySelector('.computerHand').appendChild(computerShowCard);  
+    }
+}
+
 const playComputer = () => {
     while (computerValue <= 16) {
         let card = deckArray[Math.floor(Math.random() * deckArray.length)];
         computerHand.push(card)
         computerValue += deckObject[card].value;
+        displayComputerHand();
     }
 
     winOrLose();

@@ -23,7 +23,7 @@ gameContent.pacmanMouth = document.querySelector('.mouth');
 gameContent.ghost = document.querySelector('.ghost');
 
 const player = {
-    pos: 20,
+    pos: 32,
     speed: 4,
     coolDown: 0,
     pause: false,
@@ -87,7 +87,7 @@ const createSquare = (elementValue) => {
 
 const createGhosts = () => {
     let newGhost = gameContent.ghost.cloneNode(true);
-    newGhost.pos = 15 + ghosts.length;
+    newGhost.pos = 11 + ghosts.length;
     newGhost.style.display = 'block';
     newGhost.style.backgroundColor = board[ghosts.length];
     newGhost.namer = board[ghosts.length];
@@ -95,5 +95,20 @@ const createGhosts = () => {
     console.log(newGhost);
 }
 
+const move = () => {
+    console.log(ghosts);
+    ghosts.forEach((ghost) => {
+        myBoard[ghost.pos].append(ghost);
+        // console.log(myBoard);
+    })
+    gameContent.pacman.style.display = 'block';
+    myBoard[player.pos].append(gameContent.pacman);
+}
+
 gameContent.ghost.style.display = 'none';
+gameContent.pacman.style.display = 'none';
 createGame();
+
+document.addEventListener('keydown', (e) => {
+    player.play = requestAnimationFrame(move)
+})

@@ -54,12 +54,16 @@
     border-radius: 100%;
 }
 
-.ghost .bottom {
+/* Want to get the bottom of the ghost to be consistent with original style */
+
+/* .ghost .bottom {
+    position: absolute;
+    bottom: 5%;
     background:
         linear-gradient(-45deg, transparent 75%, green 75%) 0 50%,
         linear-gradient( 45deg, transparent 75%, green 75%) 0 50%;
     background-size:20px 20px, 20px 20px;
-}
+} */
 
 /* Styling for Pacman */
 
@@ -139,7 +143,7 @@
     top: 24%;
     width: 50%;
     height: 50%;
-    background-color: floralwhite;
+    background-color: whitesmoke;
     border-radius: 100%;
 }
 

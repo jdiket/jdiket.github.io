@@ -44,8 +44,12 @@ const tempBoard = [
 
 
 const createGame = () => {
-    tempBoard.forEach((cell) => {
-        createSquare(cell);
+    for (let i = 0; i < gameContent.ghosts; i ++) {
+        createGhosts();
+    }
+
+    tempBoard.forEach((boardArrayValue) => {
+        createSquare(boardArrayValue);
         // console.log(cell);
     })
 
@@ -57,16 +61,18 @@ const createGame = () => {
     gameContent.grid.style.gridTemplateRows = gameContent.x;
 }
 
-const createSquare = (cell) => {
+const createSquare = (elementValue) => {
     const div = document.createElement('div');
     div.classList.add('box');
-    if (cell === 1) {
+
+    // Create boundary wall, dot, or Super Dot based on gameBoard array
+    if (elementValue === 1) {
         div.classList.add('wall')
-    } else if (cell === 2) {
+    } else if (elementValue === 2) {
         const dot =document.createElement('div');
         dot.classList.add('dot');
         div.append(dot);
-    } else if (cell === 3) {
+    } else if (elementValue === 3) {
         const dot = document.createElement('div');
         dot.classList.add('superDot');
         div.append(dot);
@@ -74,7 +80,20 @@ const createSquare = (cell) => {
 
     gameContent.grid.append(div);
     myBoard.push(div);
+
+    div.t = elementValue;
+    div.idVal = myBoard;
 }
 
-// gameContent.ghost.style.display = 'none';
+const createGhosts = () => {
+    let newGhost = gameContent.ghost.cloneNode(true);
+    newGhost.pos = 15 + ghosts.length;
+    newGhost.style.display = 'block';
+    newGhost.style.backgroundColor = board[ghosts.length];
+    newGhost.namer = board[ghosts.length];
+    ghosts.push(newGhost);
+    console.log(newGhost);
+}
+
+gameContent.ghost.style.display = 'none';
 createGame();

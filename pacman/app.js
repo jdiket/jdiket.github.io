@@ -97,28 +97,49 @@ const createGhosts = () => {
     newGhost.style.backgroundColor = board[ghosts.length];
     newGhost.namer = board[ghosts.length];
     ghosts.push(newGhost);
-    console.log(newGhost);
+    // console.log(newGhost);
 }
 
 const move = () => {
-    console.log(ghosts);
-    ghosts.forEach((ghost) => {
-        myBoard[ghost.pos].append(ghost);
-        // console.log(myBoard);
-    })
-if (keyPress.ArrowRight) {
-    player.pos += 1;
-} else if (keyPress.ArrowLeft) {
-    player.pos -= 1;
-} else if (keyPress.ArrowUp) {
-    player.pos -= gameContent.size;
-} else if (keyPress.ArrowDown) {
-    player.pos += gameContent.size;
-}
-    console.log(player.pos);
-    gameContent.pacman.style.display = 'block';
-    myBoard[player.pos].append(gameContent.pacman);
-    player.play = requestAnimationFrame(move);
+    if (gameContent.inPlay) {
+        player.coolDown --;
+        if (player.coolDown < 0) {
+            ghosts.forEach((ghost) => {
+                myBoard[ghost.pos].append(ghost);
+                // console.log(myBoard);
+            })
+            // Player movement from keypress
+            let tempPos = player.pos;
+            if (keyPress.ArrowRight) {
+                player.pos += 1;
+            } else if (keyPress.ArrowLeft) {
+                player.pos -= 1;
+            } else if (keyPress.ArrowUp) {
+                player.pos -= gameContent.size;
+            } else if (keyPress.ArrowDown) {
+                player.pos += gameContent.size;
+            }
+
+            let newPlace = myBoard[player.pos];
+            if (newPlace.t === 1) {
+                console.log('wall');
+                player.pos = tempPos;
+            }
+            if (newPlace.t === 2) {
+                console.log('dot');
+                myBoard[player.pos].innerHtml = '';
+                newPlace.t = 0;
+            }
+
+            player.coolDown = player.speed;
+            // console.log(newPlace);
+        }
+        
+
+        // console.log(player.pos);
+        myBoard[player.pos].append(gameContent.pacman);
+        player.play = requestAnimationFrame(move);
+    }
 }
 
 gameContent.ghost.style.display = 'none';
@@ -129,7 +150,12 @@ document.addEventListener('keydown', (e) => {
     if (e.code in keyPress) {
         keyPress[e.code] = true;
     }
-    player.play = requestAnimationFrame(move);
+    if (!gameContent.inPlay && !player.pause) {
+        gameContent.pacman.style.display = 'block';
+        player.play = requestAnimationFrame(move);
+        gameContent.inPlay = true;
+    }
+    
 })
 
 document.addEventListener('keyup', (e) => {

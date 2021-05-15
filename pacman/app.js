@@ -76,5 +76,5 @@ const createSquare = (cell) => {
     myBoard.push(div);
 }
 
-gameContent.ghost.style.display = 'none';
+// gameContent.ghost.style.display = 'none';
 createGame();

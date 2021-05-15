@@ -2,7 +2,12 @@
 // Arrays of game tools
 const board = ['pink', 'blue', 'green', 'red', 'purple', 'orange'];
 const myBoard = [];
-
+const keyPress = {
+    ArrowRight: false,
+    ArrowLeft: false,
+    ArrowUp: false,
+    ArrowDown: false
+}
 const ghosts = [];
 
 // Primary object for game manipulation
@@ -101,8 +106,19 @@ const move = () => {
         myBoard[ghost.pos].append(ghost);
         // console.log(myBoard);
     })
+if (keyPress.ArrowRight) {
+    player.pos += 1;
+} else if (keyPress.ArrowLeft) {
+    player.pos -= 1;
+} else if (keyPress.ArrowUp) {
+    player.pos -= gameContent.size;
+} else if (keyPress.ArrowDown) {
+    player.pos += gameContent.size;
+}
+    console.log(player.pos);
     gameContent.pacman.style.display = 'block';
     myBoard[player.pos].append(gameContent.pacman);
+    player.play = requestAnimationFrame(move);
 }
 
 gameContent.ghost.style.display = 'none';
@@ -110,5 +126,14 @@ gameContent.pacman.style.display = 'none';
 createGame();
 
 document.addEventListener('keydown', (e) => {
-    player.play = requestAnimationFrame(move)
+    if (e.code in keyPress) {
+        keyPress[e.code] = true;
+    }
+    player.play = requestAnimationFrame(move);
+})
+
+document.addEventListener('keyup', (e) => {
+    if (e.code in keyPress) {
+        keyPress[e.code] = false;
+    }
 })

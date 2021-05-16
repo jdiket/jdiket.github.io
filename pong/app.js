@@ -4,32 +4,30 @@ let speed = 5;
 
 // Game info for Player 1
 const player1 = {
-    x: 50,
+    x: 0,
     y: 50,
     speed: 5,
     width: 15,
     height: 100,
+    score: 0,
 };
 
 const keyPressP1 = {
     KeyD: false,
     KeyA: false,
-    KeyW: false,
-    KeyS: false,
 };
 
 // Game info for Player 2
 const player2 = {
-    x: 550,
-    y: 50,
+    x: 585,
+    y: 350,
     speed: 5,
     width: 15,
     height: 100,
+    score: 0,
 };
 
 const keyPressP2 = {
-    ArrowRight: false,
-    ArrowLeft: false,
     ArrowUp: false,
     ArrowDown: false
 };
@@ -52,9 +50,6 @@ const draw = () => {
     move();
     checkCollision(player1, player2);
 
-    // Screen output to track position of players
-    let output = `P1 X: ${player1.x} Y: ${player1.y} | P2 X: ${player2.x} Y: ${player2.y}`;
-
     // Player 1
     contx.fillStyle = 'blue';
     contx.fillRect(player1.x, player1.y, player1.width, player1.height);
@@ -67,6 +62,8 @@ const draw = () => {
     contx.fillStyle = 'white';
     contx.fillRect(ball.x, ball.y, ball.width, ball.height);
 
+    // Screen output to track position of players
+    let output = `Blue: ${player1.score}  |  Red: ${player2.score}`;
     contx.font = '24px serif';
     contx.textAlign = 'center';
     contx.fillStyle = 'red';
@@ -116,26 +113,18 @@ const checkCollision = (thing1, thing2) => {
 
 const move = () => {
 
-    // Movement control for Player 2
-    if (keyPressP2.ArrowRight) {
-        player2.x += player2.speed;
-    } else if (keyPressP2.ArrowLeft) {
-        player2.x -= player2.speed;
-    } else if (keyPressP2.ArrowUp) {
-        player2.y -= player2.speed;
-    } else if (keyPressP2.ArrowDown) {
-        player2.y += player2.speed;
-    }
-
     // Movement control for Player 1
-    if (keyPressP1.KeyD) {
-        player1.x += player1.speed;
-    } else if (keyPressP1.KeyA) {
-        player1.x -= player1.speed;
-    } else if (keyPressP1.KeyW) {
+    if (keyPressP1.KeyW) {
         player1.y -= player1.speed;
     } else if (keyPressP1.KeyS) {
         player1.y += player1.speed;
+    }
+
+    // Movement control for Player 2
+    if (keyPressP2.ArrowUp) {
+        player2.y -= player2.speed;
+    } else if (keyPressP2.ArrowDown) {
+        player2.y += player2.speed;
     }
 
     // Movement control for the ball

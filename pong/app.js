@@ -1,6 +1,6 @@
 const canvas = document.querySelector('#myCanvas');
 const contx = canvas.getContext('2d');
-let speed = 5;
+let speed = 4;
 
 // Game info for Player 1
 const player1 = {
@@ -19,7 +19,7 @@ const keyPressP1 = {
 
 // Game info for Player 2
 const player2 = {
-    x: 585,
+    x: 785,
     y: 350,
     speed: 5,
     width: 15,
@@ -51,11 +51,11 @@ const draw = () => {
     checkCollision(player1, player2);
 
     // Player 1
-    contx.fillStyle = 'blue';
+    contx.fillStyle = 'teal';
     contx.fillRect(player1.x, player1.y, player1.width, player1.height);
 
     // Player 2
-    contx.fillStyle = 'red';
+    contx.fillStyle = 'hotpink';
     contx.fillRect(player2.x, player2.y, player2.width, player2.height);
 
     // Ball
@@ -63,11 +63,11 @@ const draw = () => {
     contx.fillRect(ball.x, ball.y, ball.width, ball.height);
 
     // Screen output to track position of players
-    let output = `Blue: ${player1.score}  |  Red: ${player2.score}`;
+    let output = `Player 1: ${player1.score}  |  Player 2: ${player2.score}`;
     contx.font = '24px serif';
     contx.textAlign = 'center';
-    contx.fillStyle = 'red';
-    contx.fillText(output, 300, 30);
+    contx.fillStyle = 'white';
+    contx.fillText(output, 400, 30);
 
     requestAnimationFrame(draw);
 }
@@ -81,9 +81,6 @@ const keyDown = (event) => {
     if (event.code in keyPressP2) {
         keyPressP2[event.code] = true;
     }
-    
-    // console.log(event);
-    // move();
 }
 
 const keyUp = (event) => {
@@ -93,7 +90,6 @@ const keyUp = (event) => {
     if (event.code in keyPressP2) {
         keyPressP2[event.code] = false;
     }
-    // console.log(event);
 }
 
 document.addEventListener('keydown', keyDown);
@@ -104,6 +100,15 @@ document.addEventListener('keyup', keyUp);
 const checkCollision = (thing1, thing2) => {
     let hit = ((thing1.x < (thing2.x + thing2.width)) && ((thing1.x + thing1.width) > thing2.x) && (thing1.y < (thing2.y + thing2.height)) && ((thing1.y + thing1.height) > thing2.y)) 
     return hit;
+}
+
+// Function to reset ball after score
+
+const resetBall = () => {
+    ball.x = (canvas.width / 2);
+    ball.y = (canvas.height / 2);
+    ballSpeedX = speed;
+    ballSpeedY = -speed;
 }
 
 // Primary movement function based on player input
@@ -138,8 +143,10 @@ const move = () => {
 
     if (ball.x < 0) {
         player2.score ++;
+        resetBall();
     } else if (ball.x > canvas.width) {
         player1.score ++;
+        resetBall();
     }
 
     if (ball.x < 0 || ball.x > canvas.width) {
@@ -159,6 +166,7 @@ const move = () => {
             ball.ballSpeedY = -speed;
         }
     }
+
     if (checkCollision(ball, player2)) {
         ball.ballSpeedX *= -1;
         let halfPlayer1 = (player1.y + player1.height) / 2;
@@ -170,7 +178,5 @@ const move = () => {
         }
     }
 }
-
-// draw();
 
 requestAnimationFrame(draw);

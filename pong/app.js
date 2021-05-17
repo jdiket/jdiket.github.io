@@ -13,8 +13,8 @@ const player1 = {
 };
 
 const keyPressP1 = {
-    KeyD: false,
-    KeyA: false,
+    KeyW: false,
+    KeyS: false,
 };
 
 // Game info for Player 2
@@ -103,9 +103,6 @@ document.addEventListener('keyup', keyUp);
 
 const checkCollision = (thing1, thing2) => {
     let hit = ((thing1.x < (thing2.x + thing2.width)) && ((thing1.x + thing1.width) > thing2.x) && (thing1.y < (thing2.y + thing2.height)) && ((thing1.y + thing1.height) > thing2.y)) 
-    if (hit) {
-        console.log('HIT');
-    }
     return hit;
 }
 
@@ -115,21 +112,36 @@ const move = () => {
 
     // Movement control for Player 1
     if (keyPressP1.KeyW) {
-        player1.y -= player1.speed;
+        if (player1.y >= 0) {
+            player1.y -= player1.speed;
+        }
     } else if (keyPressP1.KeyS) {
-        player1.y += player1.speed;
+        if ((player1.y + player1.height) <= canvas.height) {
+            player1.y += player1.speed;
+        }
     }
 
     // Movement control for Player 2
     if (keyPressP2.ArrowUp) {
-        player2.y -= player2.speed;
+        if (player2.y >= 0) {
+            player2.y -= player2.speed;
+        }
     } else if (keyPressP2.ArrowDown) {
-        player2.y += player2.speed;
+        if ((player2.y + player2.height) <= canvas.height) {
+            player2.y += player2.speed;
+        }
     }
 
     // Movement control for the ball
     ball.x += ball.ballSpeedX;
     ball.y += ball.ballSpeedY;
+
+    if (ball.x < 0) {
+        player2.score ++;
+    } else if (ball.x > canvas.width) {
+        player1.score ++;
+    }
+
     if (ball.x < 0 || ball.x > canvas.width) {
         ball.ballSpeedX *= -1;
     }

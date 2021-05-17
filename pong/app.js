@@ -20,7 +20,7 @@ const keyPressP1 = {
 // Game info for Player 2
 const player2 = {
     x: 785,
-    y: 350,
+    y: 450,
     speed: 5,
     width: 15,
     height: 100,

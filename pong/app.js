@@ -1,5 +1,6 @@
 const canvas = document.querySelector('#myCanvas');
 const contx = canvas.getContext('2d');
+const resetButton = document.querySelector('.reset');
 let speed = 4;
 
 // Game info for Player 1
@@ -110,6 +111,20 @@ const resetBall = () => {
     ballSpeedX = speed;
     ballSpeedY = -speed;
 }
+
+const resetGame = () => {
+    player1.score = 0;
+    player1.x = 0;
+    player1.y = 50;
+
+    player2.score = 0;
+    player2.x = 785;
+    player2.y = 450;
+
+    resetBall();
+}
+
+resetButton.addEventListener('click', resetGame);
 
 // Primary movement function based on player input
 

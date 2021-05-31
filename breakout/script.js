@@ -3,7 +3,7 @@ const canvasWrite = canvas.getContext('2d');
 document.body.prepend(canvas);
 
 const game = {
-    grid: 40,
+    grid: 60,
     animation: ''
 };
 
@@ -22,8 +22,8 @@ const ball = {
     width: game.grid / 3,
     height: game.grid / 3,
     color: 'goldenrod',
-    directionX: 4,
-    directionY: 4
+    directionX: 5,
+    directionY: 5
 };
 
 const keyPress = {
@@ -34,6 +34,7 @@ const keyPress = {
 canvas.setAttribute('width',game.grid * 15);
 canvas.setAttribute('height', game.grid * 10);
 canvas.style.border = '1px solid black';
+canvas.style.background = 'black';
 
 document.addEventListener('keydown', (e) => {
     if (e.code in keyPress) { keyPress[e.code] = true }
@@ -48,6 +49,13 @@ document.addEventListener('mousemove', (e) => {
         player.Xpos = val - player.width;
     }
 });
+
+const collisionDetection = (object1, object2) => {
+    const xAxis = (object1.Xpos<(object2.Xpos + object2.width))&&((object1.Xpos + object1.width)>object2.Xpos);
+    const yAxis = (object1.Ypos<(object2.Ypos + object2.height))&&((object1.Ypos+object1.height)>object2.Ypos);
+    const collision = xAxis && yAxis;
+    return collision;
+};
 
 const playerMove = () => {
     if (keyPress.ArrowLeft) { player.Xpos -= player.speed }
@@ -89,6 +97,13 @@ const draw = () => {
     ballMove();
     drawPlayer();
     drawBall();
+    if (collisionDetection(player, ball)) {
+        ball.directionY *= -1;
+        let hitLocation = (ball.Xpos + (ball.width/2)) - player.Xpos;
+        let hitFromCenter = hitLocation - (player.width / 2);
+        let directionChange = Math.ceil(hitFromCenter / (player.width / 10));
+        ball.directionX = directionChange;
+    };
     game.animation = requestAnimationFrame(draw);
 };
 

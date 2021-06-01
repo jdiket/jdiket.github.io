@@ -4,6 +4,8 @@ document.body.prepend(canvas);
 
 const game = {
     grid: 60,
+    bricks: [],
+    numberOfBricks: 36,
     animation: ''
 };
 
@@ -97,6 +99,7 @@ const draw = () => {
     ballMove();
     drawPlayer();
     drawBall();
+    drawBricks();
     if (collisionDetection(player, ball)) {
         ball.directionY *= -1;
         let hitLocation = (ball.Xpos + (ball.width/2)) - player.Xpos;
@@ -107,4 +110,38 @@ const draw = () => {
     game.animation = requestAnimationFrame(draw);
 };
 
+const createBrick = (Xpos, Ypos, width, height) => {
+    
+    
+    game.bricks.push({
+        Xpos: Xpos, Ypos: Ypos, width: width, height: height
+    });
+};
+
+const startGame = () => {
+    let buffer = 10;
+    let width = game.grid;
+    let height = game.grid / 2;
+    let totalAcross = Math.floor((canvas.width - game.grid) / (width + buffer));
+    let Xpos = (game.grid / 2);
+    let Ypos = game.grid;
+    for (let i = 0; i < game.numberOfBricks; i ++) {
+        
+        if (i % totalAcross === 0) { Ypos += (height + buffer); Xpos = (game.grid / 2) }
+        createBrick(Xpos, Ypos, width, height);
+        Xpos += (width + buffer);
+    };
+};
+
+const drawBricks = () => {
+    game.bricks.forEach((brick, index) => {
+        canvasWrite.beginPath();
+        canvasWrite.fillStyle = 'white';
+        canvasWrite.rect(brick.Xpos, brick.Ypos, brick.width, brick.height);
+        canvasWrite.fill();
+        canvasWrite.closePath();
+    })
+}
+
 game.animation = requestAnimationFrame(draw);
+startGame();

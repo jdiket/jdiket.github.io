@@ -1,7 +1,7 @@
 const canvas = document.querySelector('#myCanvas');
 const contx = canvas.getContext('2d');
 const resetButton = document.querySelector('.reset');
-let speed = 4;
+let speed = 4.0;
 
 // Game info for Player 1
 const player1 = {

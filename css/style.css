@@ -419,7 +419,7 @@ header {
 .portfolio {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    
+    margin: 0 auto;
 }
 
 .portfolio__item {
@@ -441,6 +441,18 @@ header {
 .portfolio__img:hover, .portfolio__item:focus .portfolio__img {
     transform: scale(1.2);
     opacity: 0.5;
+}
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* -------- Footer ---------- */
@@ -484,18 +496,4 @@ header {
 
 .social-list__link {
     padding: 0.5em;
-}
-
-/* ----------- Portfolio ---------- */
-
-.portfolio-item-individual {
-    padding: 0 2em 2em;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.portfolio-item-individual p {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }

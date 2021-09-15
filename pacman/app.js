@@ -48,23 +48,7 @@ const tempBoard = [
 ]
 
 
-const createGame = () => {
-    for (let i = 0; i < gameContent.ghosts; i ++) {
-        createGhosts();
-    }
 
-    tempBoard.forEach((boardArrayValue) => {
-        createSquare(boardArrayValue);
-        // console.log(cell);
-    })
-
-    for (let i = 0; i < gameContent.size; i ++) {
-        gameContent.x += ` ${gameContent.height}px `;
-        // console.log(gameContent.x);
-    }
-    gameContent.grid.style.gridTemplateColumns = gameContent.x;
-    gameContent.grid.style.gridTemplateRows = gameContent.x;
-}
 
 const createSquare = (elementValue) => {
     const div = document.createElement('div');
@@ -87,7 +71,8 @@ const createSquare = (elementValue) => {
     myBoard.push(div);
 
     div.t = elementValue;
-    div.idVal = myBoard;
+    div.idVal = myBoard.length;
+    div.addEventListener('click', (e) => {console.dir(div)})
 }
 
 const createGhosts = () => {
@@ -140,6 +125,24 @@ const move = () => {
         myBoard[player.pos].append(gameContent.pacman);
         player.play = requestAnimationFrame(move);
     }
+}
+
+const createGame = () => {
+    for (let i = 0; i < gameContent.ghosts; i ++) {
+        createGhosts();
+    }
+
+    tempBoard.forEach((boardArrayValue) => {
+        createSquare(boardArrayValue);
+        // console.log(cell);
+    })
+
+    for (let i = 0; i < gameContent.size; i ++) {
+        gameContent.x += ` ${gameContent.height}px `;
+        // console.log(gameContent.x);
+    }
+    gameContent.grid.style.gridTemplateColumns = gameContent.x;
+    gameContent.grid.style.gridTemplateRows = gameContent.x;
 }
 
 gameContent.ghost.style.display = 'none';
